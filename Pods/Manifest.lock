@@ -16,17 +16,20 @@ PODS:
     - AFNetworking/NSURLSession
   - LLNetworkEngine (0.0.1):
     - AFNetworking
+  - LLRefresh (0.0.1):
+    - MJRefresh
   - MJRefresh (3.1.12)
 
 DEPENDENCIES:
   - LLNetworkEngine
-  - MJRefresh (= 3.1.12)
+  - LLRefresh
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   LLNetworkEngine: 7f68441984583d8985161c3035ae21f0f4d0b314
+  LLRefresh: 279cbee2827afe6f812866847041ad0cd1f36d84
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
 
-PODFILE CHECKSUM: d5cfd811d377c3fc22ce65fe919255ff9da5f69c
+PODFILE CHECKSUM: f1ef8fed0dece2aeb27246f32219eb62cc925eb7
 
 COCOAPODS: 1.1.1

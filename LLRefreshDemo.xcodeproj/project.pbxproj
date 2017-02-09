@@ -13,7 +13,6 @@
 		6399FB541E4B81BB00EAF13E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6399FB521E4B81BB00EAF13E /* Main.storyboard */; };
 		6399FB561E4B81BB00EAF13E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6399FB551E4B81BB00EAF13E /* Assets.xcassets */; };
 		6399FB591E4B81BB00EAF13E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6399FB571E4B81BB00EAF13E /* LaunchScreen.storyboard */; };
-		63E3D8351E4C38D700AE8A63 /* NSObject+LLRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E3D8341E4C38D700AE8A63 /* NSObject+LLRefresh.m */; };
 		63E3D8831E4CA22F00AE8A63 /* YKGoodsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E3D8811E4CA22F00AE8A63 /* YKGoodsCollectionCell.m */; };
 		63E3D8841E4CA22F00AE8A63 /* YKGoodsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E3D8821E4CA22F00AE8A63 /* YKGoodsCollectionCell.xib */; };
 		E82FC5864032B57255480564 /* libPods-LLRefreshDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1ACA53D80C8B69BCE09C41 /* libPods-LLRefreshDemo.a */; };
@@ -30,8 +29,6 @@
 		6399FB551E4B81BB00EAF13E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6399FB581E4B81BB00EAF13E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6399FB5A1E4B81BB00EAF13E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63E3D8331E4C38D700AE8A63 /* NSObject+LLRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LLRefresh.h"; sourceTree = "<group>"; };
-		63E3D8341E4C38D700AE8A63 /* NSObject+LLRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LLRefresh.m"; sourceTree = "<group>"; };
 		63E3D8801E4CA22F00AE8A63 /* YKGoodsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKGoodsCollectionCell.h; sourceTree = "<group>"; };
 		63E3D8811E4CA22F00AE8A63 /* YKGoodsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKGoodsCollectionCell.m; sourceTree = "<group>"; };
 		63E3D8821E4CA22F00AE8A63 /* YKGoodsCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YKGoodsCollectionCell.xib; sourceTree = "<group>"; };
@@ -81,7 +78,6 @@
 		6399FB481E4B81BB00EAF13E /* LLRefreshDemo */ = {
 			isa = PBXGroup;
 			children = (
-				63E3D8321E4C38D700AE8A63 /* LLRefresh */,
 				6399FB4C1E4B81BB00EAF13E /* AppDelegate.h */,
 				6399FB4D1E4B81BB00EAF13E /* AppDelegate.m */,
 				6399FB4F1E4B81BB00EAF13E /* ViewController.h */,
@@ -105,15 +101,6 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
-		};
-		63E3D8321E4C38D700AE8A63 /* LLRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				63E3D8331E4C38D700AE8A63 /* NSObject+LLRefresh.h */,
-				63E3D8341E4C38D700AE8A63 /* NSObject+LLRefresh.m */,
-			);
-			path = LLRefresh;
-			sourceTree = SOURCE_ROOT;
 		};
 		B773F5D1D586E97599FD24D1 /* Pods */ = {
 			isa = PBXGroup;
@@ -249,7 +236,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6399FB511E4B81BB00EAF13E /* ViewController.m in Sources */,
-				63E3D8351E4C38D700AE8A63 /* NSObject+LLRefresh.m in Sources */,
 				6399FB4E1E4B81BB00EAF13E /* AppDelegate.m in Sources */,
 				6399FB4B1E4B81BB00EAF13E /* main.m in Sources */,
 				63E3D8831E4CA22F00AE8A63 /* YKGoodsCollectionCell.m in Sources */,
