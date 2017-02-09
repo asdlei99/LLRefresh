@@ -13,3 +13,16 @@ Manual import：
 Drag All files in the LLRefresh folder to project
 Import the main file：#import "LLRefresh.h"
 
+#Examples
+[self setScroll:_collectionView firstPageNor:1 networkCallback:^(NSInteger page, CompletionCallback completionCallback) {
+    [LLNetworkEngine postWithUrl:@"http://api.tunjifen.com/nineAndTwentyBuy" paraDic:@{@"data":@{@"size":@"10",@"bjmoney":@"2",@"index":@(page)}} successBlock:^(BOOL isSuccess, NSString *message, id jsonObj) {
+            completionCallback(isSuccess,jsonObj[@"data"][@"list"]);
+                } failedBlock:^(NSError *error) {
+                    completionCallback(NO,@[]);
+     }];
+}];
+[self refreshScroll]; //立即下拉刷新
+
+#For more information, please see demo project or connect me with kevliule@gmail.com
+
+#If you find any bugs or any other good ideas , please issues me , thanks very much!
