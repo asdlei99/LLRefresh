@@ -13,6 +13,10 @@
 		6399FB541E4B81BB00EAF13E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6399FB521E4B81BB00EAF13E /* Main.storyboard */; };
 		6399FB561E4B81BB00EAF13E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6399FB551E4B81BB00EAF13E /* Assets.xcassets */; };
 		6399FB591E4B81BB00EAF13E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6399FB571E4B81BB00EAF13E /* LaunchScreen.storyboard */; };
+		63E3D8351E4C38D700AE8A63 /* NSObject+LLRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E3D8341E4C38D700AE8A63 /* NSObject+LLRefresh.m */; };
+		63E3D8831E4CA22F00AE8A63 /* YKGoodsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E3D8811E4CA22F00AE8A63 /* YKGoodsCollectionCell.m */; };
+		63E3D8841E4CA22F00AE8A63 /* YKGoodsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E3D8821E4CA22F00AE8A63 /* YKGoodsCollectionCell.xib */; };
+		E82FC5864032B57255480564 /* libPods-LLRefreshDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1ACA53D80C8B69BCE09C41 /* libPods-LLRefreshDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,14 @@
 		6399FB551E4B81BB00EAF13E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6399FB581E4B81BB00EAF13E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6399FB5A1E4B81BB00EAF13E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63E3D8331E4C38D700AE8A63 /* NSObject+LLRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LLRefresh.h"; sourceTree = "<group>"; };
+		63E3D8341E4C38D700AE8A63 /* NSObject+LLRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LLRefresh.m"; sourceTree = "<group>"; };
+		63E3D8801E4CA22F00AE8A63 /* YKGoodsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKGoodsCollectionCell.h; sourceTree = "<group>"; };
+		63E3D8811E4CA22F00AE8A63 /* YKGoodsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKGoodsCollectionCell.m; sourceTree = "<group>"; };
+		63E3D8821E4CA22F00AE8A63 /* YKGoodsCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YKGoodsCollectionCell.xib; sourceTree = "<group>"; };
+		64EAB2994DC71A4EA0F96A7E /* Pods-LLRefreshDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LLRefreshDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LLRefreshDemo/Pods-LLRefreshDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B76B10CFB65663840F137FF1 /* Pods-LLRefreshDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LLRefreshDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LLRefreshDemo/Pods-LLRefreshDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		EA1ACA53D80C8B69BCE09C41 /* libPods-LLRefreshDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LLRefreshDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +45,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E82FC5864032B57255480564 /* libPods-LLRefreshDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6318CC165256ADC19EDA9DDD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA1ACA53D80C8B69BCE09C41 /* libPods-LLRefreshDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6399FB3D1E4B81BB00EAF13E = {
 			isa = PBXGroup;
 			children = (
 				6399FB481E4B81BB00EAF13E /* LLRefreshDemo */,
 				6399FB471E4B81BB00EAF13E /* Products */,
+				B773F5D1D586E97599FD24D1 /* Pods */,
+				6318CC165256ADC19EDA9DDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,10 +81,14 @@
 		6399FB481E4B81BB00EAF13E /* LLRefreshDemo */ = {
 			isa = PBXGroup;
 			children = (
+				63E3D8321E4C38D700AE8A63 /* LLRefresh */,
 				6399FB4C1E4B81BB00EAF13E /* AppDelegate.h */,
 				6399FB4D1E4B81BB00EAF13E /* AppDelegate.m */,
 				6399FB4F1E4B81BB00EAF13E /* ViewController.h */,
 				6399FB501E4B81BB00EAF13E /* ViewController.m */,
+				63E3D8801E4CA22F00AE8A63 /* YKGoodsCollectionCell.h */,
+				63E3D8811E4CA22F00AE8A63 /* YKGoodsCollectionCell.m */,
+				63E3D8821E4CA22F00AE8A63 /* YKGoodsCollectionCell.xib */,
 				6399FB521E4B81BB00EAF13E /* Main.storyboard */,
 				6399FB551E4B81BB00EAF13E /* Assets.xcassets */,
 				6399FB571E4B81BB00EAF13E /* LaunchScreen.storyboard */,
@@ -79,6 +106,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		63E3D8321E4C38D700AE8A63 /* LLRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				63E3D8331E4C38D700AE8A63 /* NSObject+LLRefresh.h */,
+				63E3D8341E4C38D700AE8A63 /* NSObject+LLRefresh.m */,
+			);
+			path = LLRefresh;
+			sourceTree = SOURCE_ROOT;
+		};
+		B773F5D1D586E97599FD24D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B76B10CFB65663840F137FF1 /* Pods-LLRefreshDemo.debug.xcconfig */,
+				64EAB2994DC71A4EA0F96A7E /* Pods-LLRefreshDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +131,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6399FB5D1E4B81BB00EAF13E /* Build configuration list for PBXNativeTarget "LLRefreshDemo" */;
 			buildPhases = (
+				B73FA4222CF19D14A23E2911 /* [CP] Check Pods Manifest.lock */,
 				6399FB421E4B81BB00EAF13E /* Sources */,
 				6399FB431E4B81BB00EAF13E /* Frameworks */,
 				6399FB441E4B81BB00EAF13E /* Resources */,
+				221CA9AA7E7FCDCEE987F220 /* [CP] Embed Pods Frameworks */,
+				9F624B169AD7EE3281C2447D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,11 +188,60 @@
 			files = (
 				6399FB591E4B81BB00EAF13E /* LaunchScreen.storyboard in Resources */,
 				6399FB561E4B81BB00EAF13E /* Assets.xcassets in Resources */,
+				63E3D8841E4CA22F00AE8A63 /* YKGoodsCollectionCell.xib in Resources */,
 				6399FB541E4B81BB00EAF13E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		221CA9AA7E7FCDCEE987F220 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LLRefreshDemo/Pods-LLRefreshDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F624B169AD7EE3281C2447D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LLRefreshDemo/Pods-LLRefreshDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B73FA4222CF19D14A23E2911 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6399FB421E4B81BB00EAF13E /* Sources */ = {
@@ -152,8 +249,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6399FB511E4B81BB00EAF13E /* ViewController.m in Sources */,
+				63E3D8351E4C38D700AE8A63 /* NSObject+LLRefresh.m in Sources */,
 				6399FB4E1E4B81BB00EAF13E /* AppDelegate.m in Sources */,
 				6399FB4B1E4B81BB00EAF13E /* main.m in Sources */,
+				63E3D8831E4CA22F00AE8A63 /* YKGoodsCollectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,10 +368,12 @@
 		};
 		6399FB5E1E4B81BB00EAF13E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B76B10CFB65663840F137FF1 /* Pods-LLRefreshDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S63S4UNJRM;
 				INFOPLIST_FILE = LLRefreshDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ykms.LLRefreshDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -281,10 +382,12 @@
 		};
 		6399FB5F1E4B81BB00EAF13E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64EAB2994DC71A4EA0F96A7E /* Pods-LLRefreshDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S63S4UNJRM;
 				INFOPLIST_FILE = LLRefreshDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ykms.LLRefreshDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -310,6 +413,7 @@
 				6399FB5F1E4B81BB00EAF13E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
