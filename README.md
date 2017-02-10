@@ -1,21 +1,23 @@
 # LLRefresh
-One line of code sets the pull-up to refresh and load more based on MJRefresh
-一行代码设置TableView或者CollectionView的下拉刷新、上拉加载
-内部实现页码的增减,避免每次设置刷新加载时计算页码
+- One line of code sets the pull-up to refresh and load more based on MJRefresh
+
+- 一行代码设置TableView或者CollectionView的下拉刷新、上拉加载
+- 内部实现页码的增减,避免每次设置刷新加载时计算页码
 
 # ScreenShots
-<img src="https://github.com/kevll/LLRefresh/raw/master/screenshots/screenshots_1.jpg" style="zoom:50%;float:left;">
+<img src="https://github.com/kevll/LLRefresh/raw/master/screenshots/screenshots_1.jpg" style="zoom:20%;">
 
-<img src="https://github.com/kevll/LLRefresh/raw/master/screenshots/screenshots_2.jpg" style="zoom:50%;float:left;">
+<img src="https://github.com/kevll/LLRefresh/raw/master/screenshots/screenshots_2.jpg" style="zoom:20%;">
 
-<img src="https://github.com/kevll/LLRefresh/raw/master/screenshots/screenshots_3.jpg" style="zoom:50%;float:left;">
+<img src="https://github.com/kevll/LLRefresh/raw/master/screenshots/screenshots_3.jpg" style="zoom:20%;">
 
 # How to use LLRefresh
 
-Installation with CocoaPods：pod 'LLRefresh'
-Manual import：
-Drag All files in the LLRefresh folder to project
-Import the main file：#import "LLRefresh.h"
+- Installation with CocoaPods：pod 'LLRefresh'
+
+- Manual import：
+- Drag All files in the LLRefresh folder to project
+- Import the main file：#import "LLRefresh.h"
 
 #Examples
 ```objective-c
