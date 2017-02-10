@@ -19,7 +19,7 @@
 - Drag All files in the LLRefresh folder to project
 - Import the main file：#import "LLRefresh.h"
 
-#Examples
+#Code Examples
 ```objective-c
 [self setScroll:_collectionView firstPageNor:1 networkCallback:^(NSInteger page, CompletionCallback completionCallback) {
    [LLNetworkEngine postWithUrl:@"http://api.tunjifen.com/nineAndTwentyBuy" 	  
@@ -35,7 +35,7 @@
 #Remind
 - ARC
 
-- iOS>=7.0
+- iOS>=6.0
 - iPhone \ iPad screen anyway
 
 #Hope
