@@ -45,7 +45,7 @@ static const char firstPageNorKey;
     }];
 }
 
-- (void)setScroll:(UIScrollView *)scrollView firstPageNor:(NSInteger)firstPageNor networkCallback:(NetworkCallback)networkCallback
+- (void)setScroll:(UIScrollView *)scrollView firstPageNor:(NSInteger)firstPageNor pageSize:(NSInteger)pageSize networkCallback:(NetworkCallback)networkCallback
 {
     WeakObj(self)
     
@@ -82,9 +82,12 @@ static const char firstPageNorKey;
                     {
                         //No more data
                         [selfWeak decreasePage];
-                        [selfWeak noMoreData];
                     }
                     [selfWeak.bg_ScrollView.mj_footer endRefreshing];
+                }
+                if (dataArr.count < pageSize) {
+                    selfWeak.bg_ScrollView.mj_footer.hidden = YES;
+                    [selfWeak noMoreData:page];
                 }
             } else {
                 //请求失败
@@ -130,10 +133,9 @@ static const char firstPageNorKey;
 }
 
 //没有更多数据了
-- (void)noMoreData
+- (void)noMoreData:(NSInteger)page
 {
-    self.bg_ScrollView.mj_footer.hidden = YES;
-//    [self.view makeToast:@"无更多数据" duration:1.0f position:[CSToastManager defaultPosition]];
+    
 }
 
 //触发下拉刷新

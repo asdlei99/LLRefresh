@@ -43,6 +43,12 @@ typedef void(^NetworkCallback)(NSInteger page,CompletionCallback completionCallb
  */
 - (void)silenceRefresh;
 
+/**
+ 没有更多数据了
+ 可以覆盖此方法，监测没有数据
+ */
+- (void)noMoreData:(NSInteger)page;
+
 @end
 
 @interface UIScrollView (LLReloadExtension)
