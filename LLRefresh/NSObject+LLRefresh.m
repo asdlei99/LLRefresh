@@ -45,7 +45,7 @@ static const char firstPageNorKey;
     }];
 }
 
-- (void)setScroll:(UIScrollView *)scrollView firstPageNor:(NSInteger)firstPageNor pageSize:(NSInteger)pageSize networkCallback:(NetworkCallback)networkCallback
+- (void)setScroll:(UIScrollView *)scrollView firstPageNor:(NSInteger)firstPageNor pageSize:(NSInteger)pageSize networkCallback:(NetworkCallback)networkCallback noMoreDataCallback:(NoMoreDataCallback)noMoreDataCallback
 {
     WeakObj(self)
     
@@ -86,7 +86,11 @@ static const char firstPageNorKey;
                     [selfWeak.bg_ScrollView.mj_footer endRefreshing];
                 }
                 if (dataArr.count < pageSize) {
+                    //No more data
                     selfWeak.bg_ScrollView.mj_footer.hidden = YES;
+                    if (noMoreDataCallback) {
+                        noMoreDataCallback(page);
+                    }
                     [selfWeak noMoreData:page];
                 }
             } else {

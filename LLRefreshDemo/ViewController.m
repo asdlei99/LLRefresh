@@ -48,6 +48,8 @@
         } failedBlock:^(NSError *error) {
             completionCallback(NO,@[]);
         }];
+    } noMoreDataCallback:^(NSInteger page) {
+        // no more data
     }];
     [self refreshScroll]; //立即下拉刷新
 }

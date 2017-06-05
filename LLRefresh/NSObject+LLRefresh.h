@@ -10,6 +10,7 @@
 
 typedef void(^CompletionCallback)(BOOL isSuccess,NSArray *dataArr);
 typedef void(^NetworkCallback)(NSInteger page,CompletionCallback completionCallback);
+typedef void(^NoMoreDataCallback)(NSInteger page);
 
 @interface NSObject (LLRefresh)
 
@@ -19,7 +20,7 @@ typedef void(^NetworkCallback)(NSInteger page,CompletionCallback completionCallb
  2.firstPageNor      : 起始页码
  3.networkCallback   : 网络请求回调
  */
-- (void)setScroll:(UIScrollView *)scrollView firstPageNor:(NSInteger)firstPageNor pageSize:(NSInteger)pageSize networkCallback:(NetworkCallback)networkCallback;
+- (void)setScroll:(UIScrollView *)scrollView firstPageNor:(NSInteger)firstPageNor pageSize:(NSInteger)pageSize networkCallback:(NetworkCallback)networkCallback noMoreDataCallback:(NoMoreDataCallback)noMoreDataCallback;
 
 /**
  获取数据源
