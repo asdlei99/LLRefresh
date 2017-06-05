@@ -42,8 +42,8 @@
  3.networkCallback   : 网络请求回调
  */
 - (void)setRefresh{
-    [self setScroll:_collectionView firstPageNor:1 networkCallback:^(NSInteger page, CompletionCallback completionCallback) {
-        [LLNetworkEngine postWithUrl:@"http://api.tunjifen.com/nineAndTwentyBuy" paraDic:@{@"data":@{@"size":@"10",@"bjmoney":@"2",@"index":@(page)}} successBlock:^(BOOL isSuccess, NSString *message, id jsonObj) {
+    [self setScroll:_collectionView firstPageNor:1 pageSize:10 networkCallback:^(NSInteger page, CompletionCallback completionCallback) {
+        [LLNetworkEngine postWithUrl:@"http://www.ykds365.com/nineAndTwentyBuy" paraDic:@{@"data":@{@"size":@"10",@"bjmoney":@"2",@"index":@(page)}} successBlock:^(BOOL isSuccess, NSString *message, id jsonObj) {
             completionCallback(isSuccess,jsonObj[@"data"][@"list"]);
         } failedBlock:^(NSError *error) {
             completionCallback(NO,@[]);
