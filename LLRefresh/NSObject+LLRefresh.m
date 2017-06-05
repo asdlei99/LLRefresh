@@ -7,7 +7,7 @@
 //
 
 #import <objc/runtime.h>
-#import <MJRefresh.h>
+#import "MJRefresh.h"
 #import "NSObject+LLRefresh.h"
 
 typedef void(^requestBlock)(NSInteger page);
