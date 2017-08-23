@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "NSObject+LLRefresh.h"
+#import <MJRefresh.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +19,35 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self globalConfigRefreshHeaderWithBlock:^MJRefreshHeader *{
+        MJRefreshGifHeader *header = [[MJRefreshGifHeader alloc] init];
+        // 设置普通状态的动画图片
+        NSMutableArray *idleImages = [NSMutableArray array];
+        for (NSUInteger i = 1; i<=60; i++) {
+            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_anim__000%zd", i]];
+            [idleImages addObject:image];
+        }
+        [header setImages:idleImages forState:MJRefreshStateIdle];
+        
+        // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
+        NSMutableArray *refreshingImages = [NSMutableArray array];
+        for (NSUInteger i = 1; i<=3; i++) {
+            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"dropdown_loading_0%zd", i]];
+            [refreshingImages addObject:image];
+        }
+        [header setImages:refreshingImages forState:MJRefreshStatePulling];
+        
+        // 设置正在刷新状态的动画图片
+        [header setImages:refreshingImages forState:MJRefreshStateRefreshing];
+        
+        // Hide the time
+        header.lastUpdatedTimeLabel.hidden = YES;
+        
+        // Hide the status
+        header.stateLabel.hidden = YES;
+        return header;
+    }];
     return YES;
 }
 

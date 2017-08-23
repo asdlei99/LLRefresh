@@ -19,6 +19,8 @@ static const char scrollViewKey;
 static const char scrollContentArrKey;
 static const char refreshRequestBlockKey;
 static const char firstPageNorKey;
+static const char configRefreshHeaderKey;
+static const char configRefreshFooterKey;
 
 @implementation NSObject (LLRefresh)
 
@@ -33,16 +35,55 @@ static const char firstPageNorKey;
     __weak UIScrollView *_bg_ScrollView = self.bg_ScrollView;
     
     WeakObj(self)
-    _bg_ScrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        //Call this Block When enter the refresh status automatically
-        [selfWeak setPageCount:firstPageNor];
-        actionHandler(firstPageNor);
-    }];
     
-    _bg_ScrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        //Call this Block When enter the refresh status automatically
-        actionHandler([selfWeak increasePage]);
-    }];
+    MJRefreshHeader *(^configHeaderBlock)() = objc_getAssociatedObject([UIApplication sharedApplication], &configRefreshHeaderKey);
+    if (configHeaderBlock) {
+        _bg_ScrollView.mj_header = configHeaderBlock();
+        _bg_ScrollView.mj_header.refreshingBlock = ^{
+            [selfWeak setPageCount:firstPageNor];
+            actionHandler(firstPageNor);
+        };
+    } else {
+        _bg_ScrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            //Call this Block When enter the refresh status automatically
+            [selfWeak setPageCount:firstPageNor];
+            actionHandler(firstPageNor);
+        }];
+    }
+    
+    MJRefreshFooter *(^configFooterBlock)() = objc_getAssociatedObject([UIApplication sharedApplication], &configRefreshFooterKey);
+    if (configFooterBlock) {
+        _bg_ScrollView.mj_footer = configFooterBlock();
+        _bg_ScrollView.mj_footer.refreshingBlock = ^{
+            actionHandler([selfWeak increasePage]);
+        };
+    } else {
+        _bg_ScrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            //Call this Block When enter the refresh status automatically
+            actionHandler([selfWeak increasePage]);
+        }];
+    }
+}
+
+
+/**
+ 全局配置Refersh Header,比如下拉刷新动画
+
+ @param configBlock 传入配置的block,在这个Block中对MJRefresh Footer进行配置
+ 注：configBlock 需返回配置好的RefreshHeader
+ */
+- (void)globalConfigRefreshHeaderWithBlock:(MJRefreshHeader *(^)())configBlock{
+    objc_setAssociatedObject([UIApplication sharedApplication], &configRefreshHeaderKey, configBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+/**
+ 全局配置Refersh Footer,比如上拉刷新动画
+ 
+ @param configBlock 传入配置的block,在这个Block中对MJRefresh Footer进行配置
+ 注：configBlock 需返回配置好的RefreshFooter
+ */
+- (void)globalConfigRefreshFooterWithBlock:(MJRefreshFooter *(^)())configBlock{
+    objc_setAssociatedObject([UIApplication sharedApplication], &configRefreshFooterKey, configBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)setScroll:(UIScrollView *)scrollView firstPageNor:(NSInteger)firstPageNor pageSize:(NSInteger)pageSize networkCallback:(NetworkCallback)networkCallback noMoreDataCallback:(NoMoreDataCallback)noMoreDataCallback
@@ -64,7 +105,11 @@ static const char firstPageNorKey;
                 //请求成功
                 if (page==firstPageNor) {
                     //Drop down
-                    selfWeak.contentArr = [dataArr mutableCopy];
+                    if (selfWeak.contentArr.count >= dataArr.count) {
+                        [selfWeak.contentArr replaceObjectsInRange:NSMakeRange(0, dataArr.count) withObjectsFromArray:dataArr];
+                    } else {
+                        selfWeak.contentArr = [dataArr mutableCopy];
+                    }
                     [selfWeak.bg_ScrollView reloadData];
                     [selfWeak.bg_ScrollView.mj_header endRefreshing];
                     [selfWeak contentArrDidRefresh:selfWeak.contentArr];
@@ -74,7 +119,12 @@ static const char firstPageNorKey;
                 {
                     if (dataArr.count) {
                         //还有数据 （追加）
-                        [selfWeak.contentArr addObjectsFromArray:dataArr];
+                        NSInteger location = (page - firstPageNor) * pageSize;
+                        if (selfWeak.contentArr.count >= location + dataArr.count) {
+                            [selfWeak.contentArr replaceObjectsInRange:NSMakeRange(location, dataArr.count) withObjectsFromArray:dataArr];
+                        } else {
+                            [selfWeak.contentArr addObjectsFromArray:dataArr];
+                        }
                         [selfWeak.bg_ScrollView reloadData];
                         [selfWeak contentArrDidLoadMoreData:dataArr];
                     }
@@ -122,6 +172,23 @@ static const char firstPageNorKey;
 //静默刷新
 - (void)silenceRefresh{
     [self refreshRequestBlock]([self firstPageNor]);
+}
+
+/**
+ 静默刷新某一个index的数据
+ refreshIndex: 待刷新的item索引
+ pageSize    : 页尺寸
+ */
+- (void)refreshDataWithIndex:(NSInteger)refreshIndex pageSize:(NSUInteger)pageSize{
+    [self refreshDataWithPage:[self firstPageNor] + refreshIndex / pageSize];
+}
+
+/**
+ 静默刷新某一页的数据
+ refreshPage: 待刷新数据所在的页码
+ */
+- (void)refreshDataWithPage:(NSInteger)refreshPage{
+    [self refreshRequestBlock](refreshPage);
 }
 
 //已经重新加载了数据
