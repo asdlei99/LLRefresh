@@ -105,11 +105,7 @@ static const char configRefreshFooterKey;
                 //请求成功
                 if (page==firstPageNor) {
                     //Drop down
-                    if (selfWeak.contentArr.count >= dataArr.count) {
-                        [selfWeak.contentArr replaceObjectsInRange:NSMakeRange(0, dataArr.count) withObjectsFromArray:dataArr];
-                    } else {
-                        selfWeak.contentArr = [dataArr mutableCopy];
-                    }
+                    selfWeak.contentArr = [dataArr mutableCopy];
                     [selfWeak.bg_ScrollView reloadData];
                     [selfWeak.bg_ScrollView.mj_header endRefreshing];
                     [selfWeak contentArrDidRefresh:selfWeak.contentArr];

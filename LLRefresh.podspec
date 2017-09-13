@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "LLRefresh"
-  s.version      = "0.0.3"
+  s.version      = "0.0.5"
   s.summary      = "One line of code sets the pull-up to refresh and load more based on MJRefresh."
   s.description  = <<-DESC
   					一行代码设置iOS TableView 或者 CollectionView下拉刷新上拉加载
